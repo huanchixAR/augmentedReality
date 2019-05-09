@@ -1,45 +1,30 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Realidad Aumentada</title>
+	<title>JQuery HTML5 QR Code Scanner using Instascan JS Example - ItSolutionStuff.com</title>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://rawgit.com/schmich/instascan-builds/master/instascan.min.js"></script>
 </head>
-
 <body>
-	<h1>Omnicanalidad con Realidad Aumentada Demo</h1>
-	<p>Selecciona un objeto e interactua en Realidad Aumentada</p>
-	
-	
-	<a href="cupandsaucer.usdz" rel="ar">
-		<img src="cupandsaucer.png" width=200>
-	</a>
-	<a href="gramophone.usdz" rel="ar">
-		<img src="gramophone.png" width=200>
-	</a>
-	<a href="plantpot.usdz" rel="ar">
-		<img src="plantpot.png" width=200>
-	</a>
-	<a href="redchair.usdz" rel="ar">
-		<img src="redchair.png" width=200>
-	</a>
-	<a href="teapot.usdz" rel="ar">
-		<img src="teapot.png" width=200>
-	</a>
-	
-	
-	<a href="tulip.usdz" rel="ar">
-		<img src="tulip.png" width=200>
-	</a><a href="wateringcan.usdz" rel="ar">
-		<img src="wateringcan.png" width=200>
-	</a>
-	<a href="stratocaster.usdz" rel="ar">
-		<img src="stratocaster_2x.jpg" width=200>
-	</a>
-	
-	<a href="wheelbarrow.usdz" rel="ar">
-		<img src="wheelbarrow_2x.jpg" width=200>
-	</a>
-	
-	
-	
+  
+    <h1>JQuery HTML5 QR Code Scanner using Instascan JS Example - ItSolutionStuff.com</h1>
+    
+    <video id="preview"></video>
+    <script type="text/javascript">
+      let scanner = new Instascan.Scanner({ video: document.getElementById('preview') });
+      scanner.addListener('scan', function (content) {
+        alert(content);
+      });
+      Instascan.Camera.getCameras().then(function (cameras) {
+        if (cameras.length > 0) {
+          scanner.start(cameras[0]);
+        } else {
+          console.error('No cameras found.');
+        }
+      }).catch(function (e) {
+        console.error(e);
+      });
+    </script>
+   
 </body>
 </html>
